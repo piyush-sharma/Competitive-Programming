@@ -1,0 +1,40 @@
+import java.util.*;
+import java.text.DecimalFormat;
+public class MartianTime 
+{
+    public static void main(String[] args) 
+    {
+	Scanner scan = new Scanner(System.in);
+	DecimalFormat df = new DecimalFormat("00");
+
+	for(int testcases = 0; testcases < 10; testcases++)
+	{
+		int earthdays = scan.nextInt();
+		int earthhours = scan.nextInt();
+		int earthmins = scan.nextInt();
+		double earthsecs = (earthdays*60*60*24) + (earthhours*60*60) + (earthmins*60);
+		double ratio = 86400 / 88642.663;
+        double marssecs = earthsecs * ratio;
+        
+        int days = (int)marssecs / (int)(86400);
+         
+        double daystosecs = days * 86400;
+        double hourstosecs = marssecs - daystosecs;
+        int marshours = (int)hourstosecs / (3600);
+        
+        double minstosecs = marssecs - daystosecs - marshours * 3600;
+        double marsmins = Math.round(minstosecs/60.0);
+        
+        if (earthdays != 0 || earthhours != 0 || earthmins != 0)
+        {
+        	marsmins += 36;
+        }
+        if (marsmins > 59) 
+        {
+            marshours += 1;
+            marsmins -= 60;
+        }   
+        System.out.println("Day " + days + ", " + df.format(marshours) + ":" + df.format(marsmins));
+	}
+	}
+}

@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class MagicSquares
+{
+ public static void main(String args[])
+ {
+  Scanner scan = new Scanner(System.in);
+  
+  String rowOne = scan.nextLine();
+  String rowTwo = scan.nextLine();
+  String rowThree = scan.nextLine();
+  String rowFour = scan.nextLine();
+  
+  int[] row1 = Arrays.stream(rowOne.split(" ")).mapToInt(Integer::parseInt).toArray(); 
+  int[] row2 = Arrays.stream(rowTwo.split(" ")).mapToInt(Integer::parseInt).toArray();
+  int[] row3 = Arrays.stream(rowThree.split(" ")).mapToInt(Integer::parseInt).toArray();
+  int[] row4 = Arrays.stream(rowFour.split(" ")).mapToInt(Integer::parseInt).toArray();
+  
+  int row1sum = row1[0] + row1[1] + row1[2] + row1[3];
+  int row2sum = row2[0] + row2[1] + row2[2] + row2[3];
+  int row3sum = row3[0] + row3[1] + row3[2] + row3[3];
+  int row4sum = row4[0] + row4[1] + row4[2] + row4[3];
+  
+  int col1sum = row1[0] + row2[0] + row3[0] + row4[0];
+  int col2sum = row1[1] + row2[1] + row3[1] + row4[1];
+  int col3sum = row1[2] + row2[2] + row3[2] + row4[2];
+  int col4sum = row1[3] + row2[3] + row3[3] + row4[3];
+  
+  if(((row1sum == row2sum) && (row1sum == row3sum) && (row1sum == row4sum)) && ((col1sum == col2sum) && (col1sum == col3sum) && (col1sum == col4sum)))
+  {
+   System.out.print("magic");
+  }
+  else
+  {
+   System.out.print("not magic");
+  }
+  
+  
+  
+ 
+  
+ }
+}

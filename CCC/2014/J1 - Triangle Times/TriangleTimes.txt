@@ -1,0 +1,37 @@
+import java.util.*;
+public class Main
+{
+ public static void main(String args[])
+ {
+  Scanner scan = new Scanner(System.in);
+  
+  int one, two, three;
+  
+  one = scan.nextInt();
+  two = scan.nextInt();
+  three = scan.nextInt();
+  
+  int sum = one + two + three;
+  
+  if(sum > 180 || sum < 0 || one < 0 || two < 0 || three < 0 || sum != 180)
+  {
+   System.out.print("Error");
+  }
+  
+  if(sum == 180)
+  {
+  if(one == two && two == three)
+  {
+   System.out.print("Equilateral");
+  }
+   if(!((one == two && two == three)||(one != two && two != three && one != three)))
+  {
+   System.out.print("Isosceles");
+   }
+   if(one != two && two != three && one != three && (sum >= 0 && sum <= 180) && one > 0 && two > 0 && three > 0)
+  {
+   System.out.print("Scalene");
+  } 
+  }
+ }
+}
